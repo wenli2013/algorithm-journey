@@ -5,7 +5,7 @@ package class054;
 // 请你返回最长连续子数组的长度
 // 该子数组中的任意两个元素之间的绝对差必须小于或者等于 limit
 // 如果不存在满足条件的子数组，则返回 0
-// 测试链接 : https://leetcode.cn/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
+// 测试链接 : https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
 public class Code02_LongestSubarrayAbsoluteLimit {
 
 	public static int MAXN = 100001;

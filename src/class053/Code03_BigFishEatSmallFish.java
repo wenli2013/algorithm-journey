@@ -13,8 +13,8 @@ package class053;
 // 第四轮 : 8吃7。数组剩下 8。
 // 过程结束，返回4
 // 测试链接 : https://www.nowcoder.com/practice/77199defc4b74b24b8ebf6244e1793de
-// 测试链接 : https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
-
+// 测试链接 : https://leetcode.com/problems/steps-to-make-array-non-decreasing/
+// 测试链接 : https://leetcode.com/problems/steps-to-make-array-non-decreasing/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -71,7 +71,7 @@ public class Code03_BigFishEatSmallFish {
 	}
 
 	// 也找到了leetcode测试链接
-	// 测试链接 : https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
+	// 测试链接 : https://leetcode.com/problems/steps-to-make-array-non-decreasing/
 	// 提交如下代码，可以直接通过
 	public static int MAXM = 100001;
 

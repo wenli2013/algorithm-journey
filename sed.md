@@ -1,0 +1,1 @@
+ ls | xargs sed -ri 's/leetcode.cn/leetcode.com/'
