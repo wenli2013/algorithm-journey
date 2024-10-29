@@ -1,13 +1,10 @@
-package class145;
+package class147;
 
-// 集合计数
-// 一共有n个不同的数，能构成2^n个不同集合
-// 在2^n个集合中挑出若干个集合，至少挑一个
-// 希望这若干个集合的交集，正好有k个数
-// 返回挑选集合的方案数，答案对 1000000007 取模
-// 1 <= n <= 10^6
-// 0 <= k <= n
-// 测试链接 : https://www.luogu.com.cn/problem/P10596
+// 圆上连线
+// 圆上有2n个点，这些点成对连接起来，形成n条线段，任意两条线段不能相交，返回连接的方法数
+// 注意！答案不对 10^9 + 7 取模！而是对 10^8 + 7 取模！
+// 1 <= n <= 2999
+// 测试链接 : https://www.luogu.com.cn/problem/P1976
 // 提交以下的code，提交时请把类名改成"Main"，可以通过所有测试用例
 
 import java.io.BufferedReader;
@@ -17,21 +14,17 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StreamTokenizer;
 
-public class Code02_SetCounting {
+public class Code02_CircleLine {
+
+	public static int MOD = 100000007;
 
 	public static int MAXN = 1000001;
-
-	public static int MOD = 1000000007;
 
 	public static long[] fac = new long[MAXN];
 
 	public static long[] inv = new long[MAXN];
 
-	public static long[] g = new long[MAXN];
-
-	public static int n, k;
-
-	public static void build() {
+	public static void build(int n) {
 		fac[0] = inv[0] = 1;
 		fac[1] = 1;
 		for (int i = 2; i <= n; i++) {
@@ -59,27 +52,10 @@ public class Code02_SetCounting {
 		return (((fac[n] * inv[k]) % MOD) * inv[n - k]) % MOD;
 	}
 
-	public static long compute() {
-		build();
-		long tmp = 2;
-		for (int i = n; i >= 0; i--) {
-			g[i] = tmp;
-			tmp = tmp * tmp % MOD;
-		}
-		for (int i = 0; i <= n; i++) {
-			// -1 和 (MOD-1) 同余
-			g[i] = (g[i] + MOD - 1) * c(n, i) % MOD;
-		}
-		long ans = 0;
-		for (int i = k; i <= n; i++) {
-			if (((i - k) & 1) == 0) {
-				ans = (ans + c(i, k) * g[i] % MOD) % MOD;
-			} else {
-				// -1 和 (MOD-1) 同余
-				ans = (ans + c(i, k) * g[i] % MOD * (MOD - 1) % MOD) % MOD;
-			}
-		}
-		return ans;
+	// 这里用公式1
+	public static long compute(int n) {
+		build(2 * n);
+		return (c(2 * n, n) - c(2 * n, n - 1) + MOD) % MOD;
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -87,10 +63,8 @@ public class Code02_SetCounting {
 		StreamTokenizer in = new StreamTokenizer(br);
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 		in.nextToken();
-		n = (int) in.nval;
-		in.nextToken();
-		k = (int) in.nval;
-		out.println(compute());
+		int n = (int) in.nval;
+		out.println(compute(n));
 		out.flush();
 		out.close();
 		br.close();
