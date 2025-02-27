@@ -6,7 +6,7 @@ package class067;
 // 单词必须按照字母顺序，通过相邻的单元格内的字母构成
 // 其中"相邻"单元格是那些水平相邻或垂直相邻的单元格
 // 同一个单元格内的字母不允许被重复使用
-// 测试链接 : https://leetcode.cn/problems/word-search/
+// 测试链接 : https://leetcode.cn/problems/c/
 public class Code02_WordSearch {
 
 	public static boolean exist(char[][] board, String word) {
